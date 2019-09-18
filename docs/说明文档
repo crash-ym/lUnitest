@@ -1,0 +1,7 @@
+ 跳过case，class等
+ @unittest.skip("暂不执行")
+ @unittest.skipIf(t.__version__()<2.0,"版本低于2.0时不执行")
+ @unittest.skipUnless(t.__version__()<2.0,"版本低于2.0时执行")
+
+ 预期之内的失败
+ @unittest.expectedFailure
