@@ -2,7 +2,7 @@ import unittest
 import time
 import os
 import bTest.HTMLTestRunner
-import bTest.bSuit.htmlTestRunner
+import bTest.sendEmail
 
 if __name__ == '__main__':
 
@@ -17,8 +17,10 @@ if __name__ == '__main__':
     #print(discover)
     fp = open(filename,'wb')
     runner = bTest.HTMLTestRunner.HTMLTestRunner(stream =  fp, title = u"接口测试报告", description = u"测试用例执行情况：")
-
     runner.run(discover)
+    fp.close()
+
+    bTest.sendEmail.mail(filename)
     #runner = unittest.TextTestRunner()
     #result = runner.run(discover)
     #print(result.testsRun)
